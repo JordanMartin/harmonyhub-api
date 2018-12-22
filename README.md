@@ -26,10 +26,10 @@ Accept-Charset: utf-8
     "hbus"   : {
         "cmd": "vnd.logitech.harmony/vnd.logitech.harmony.engine?config",
         "id" : "xXxXxXx",
-        "params" = {
+        "params": {
             "verb": "get",
             "format": "json"
-        };
+        }
     }
 }
 ```
