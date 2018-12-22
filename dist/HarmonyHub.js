@@ -56,6 +56,13 @@ var logger_1 = require("./logger");
  */
 var HarmonyHub = /** @class */ (function (_super) {
     __extends(HarmonyHub, _super);
+    /**
+     * Create a new hub
+     *
+     * @param hubHost Host or IP of the hub
+     * @param hubRemoteId Remote id of the hub
+     * @param autoloadConfig True if the config must be loaded at the connection
+     */
     function HarmonyHub(hubHost, hubRemoteId, autoloadConfig) {
         if (autoloadConfig === void 0) { autoloadConfig = true; }
         var _this = _super.call(this) || this;

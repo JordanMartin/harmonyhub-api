@@ -12,6 +12,13 @@ declare class HarmonyHub extends EventEmitter {
     private wsSocket;
     private nextMsgId;
     private config;
+    /**
+     * Create a new hub
+     *
+     * @param hubHost Host or IP of the hub
+     * @param hubRemoteId Remote id of the hub
+     * @param autoloadConfig True if the config must be loaded at the connection
+     */
     constructor(hubHost: string, hubRemoteId: string, autoloadConfig?: boolean);
     /**
      * Connect to the hub

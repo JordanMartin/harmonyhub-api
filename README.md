@@ -7,13 +7,11 @@ It uses the local websocket API of the hub.
 # Usage
 
 ## Installation
-
 ```bash
 $ npm install harmony-hub-api
 ```
 
 ## Connexion 
-
 ```javascript
 const hub = new HarmonyHub('X.X.X.X', '12345678');
 hub.connect()
@@ -34,6 +32,9 @@ hub.connect()
 
 > :warning: Without activities, the connection is automatically closed after 60 seconds. You can periodically send a `ping` or catch the `close` event to open a new connection.
 
+## Full documentation
+The full documentation of the API is available in the `docs/` folder.
+
 ## Send commands
 ```javascript
 // Simple press
@@ -44,7 +45,6 @@ hub.holdCommand('VolumeUp', '53161273', 1000);
 ```
 
 ## Listen for events
-
 The HarmonyHub object is a EventEmitter for some events : 
 
 ```javascript
