@@ -1,0 +1,23 @@
+{
+  "name": "harmony-hub-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^10.12.11",
+    "winston": "^3.1.0",
+    "websocket": "^1.0.28"
+  },
+  "devDependencies": {
+    "@types/websocket": "0.0.40",
+    "typescript": "^3.2.1"
+  }
+}
