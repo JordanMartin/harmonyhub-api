@@ -32,7 +32,7 @@ hub.connect()
     });
 ```
 
-> Note : Without activity, the connection is automatically closed after 60 seconds. You can periodically send a `ping` or catch the `close` event to start a nex connection.
+> :warning: Without activities, the connection is automatically closed after 60 seconds. You can periodically send a `ping` or catch the `close` event to open a new connection.
 
 ## Send commands
 ```javascript
