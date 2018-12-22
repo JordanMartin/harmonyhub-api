@@ -1,7 +1,7 @@
 {
   "name": "harmony-hub-api",
   "version": "1.0.0",
-  "description": "",
+  "description": "Harmony Hub API that use the local websocket API of the hub",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
@@ -9,9 +9,18 @@
     "watch": "tsc -w",
     "doc": "typedoc --out docs"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "logitech",
+    "harmony",
+    "harmony-hub"
+  ],
+  "author": "Jordan Martin",
+  "homepage": "https://github.com/JordanMartin/harmony-hub-api/blob/master/README.md",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JordanMartin/harmony-hub-api.git"
+  },
+  "license": "GPL-3.0",
   "dependencies": {
     "@types/node": "^10.12.11",
     "winston": "^3.1.0",
@@ -19,6 +28,7 @@
   },
   "devDependencies": {
     "@types/websocket": "0.0.40",
+    "typedoc": "^0.13.0",
     "typescript": "^3.2.1"
   }
 }
