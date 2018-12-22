@@ -88,6 +88,27 @@ class HarmonyHub extends EventEmitter {
     }
 
     /**
+     * Send a command and hold it a specifig duration
+     * 
+     * @param command The command
+     * @param deviceId The id of the target device
+     * @param duration TH duration to hold the command
+     */
+    public holdCommand(command: string, deviceId: string, duration: number): Promise<void> {
+        return new Promise((resolve, reject) => {
+            this.sendCommand(command, deviceId, 'press');
+            let intervalId = setInterval(() => {
+                this.sendCommand(command, deviceId, 'hold');
+            }, 50);
+            setTimeout(() => {
+                clearInterval(intervalId);
+                this.sendCommand(command, deviceId, 'release');
+                resolve();
+            }, duration);
+        });
+    }
+
+    /**
      * Start an activity
      * 
      * @param activityId The ID of the activity

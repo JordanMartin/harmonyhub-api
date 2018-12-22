@@ -128,6 +128,27 @@ var HarmonyHub = /** @class */ (function (_super) {
         });
     };
     /**
+     * Send a command and hold it a specifig duration
+     *
+     * @param command The command
+     * @param deviceId The id of the target device
+     * @param duration TH duration to hold the command
+     */
+    HarmonyHub.prototype.holdCommand = function (command, deviceId, duration) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _this.sendCommand(command, deviceId, 'press');
+            var intervalId = setInterval(function () {
+                _this.sendCommand(command, deviceId, 'hold');
+            }, 50);
+            setTimeout(function () {
+                clearInterval(intervalId);
+                _this.sendCommand(command, deviceId, 'release');
+                resolve();
+            }, duration);
+        });
+    };
+    /**
      * Start an activity
      *
      * @param activityId The ID of the activity

@@ -32,6 +32,14 @@ declare class HarmonyHub extends EventEmitter {
      */
     sendCommand(command: string, deviceId: string, status?: string): void;
     /**
+     * Send a command and hold it a specifig duration
+     *
+     * @param command The command
+     * @param deviceId The id of the target device
+     * @param duration TH duration to hold the command
+     */
+    holdCommand(command: string, deviceId: string, duration: number): Promise<void>;
+    /**
      * Start an activity
      *
      * @param activityId The ID of the activity
