@@ -8,7 +8,7 @@ It uses the local websocket API of the hub.
 
 ## Installation
 ```bash
-$ npm install harmony-hub-api
+$ npm install harmonyhub-api
 ```
 
 ## Connexion 
