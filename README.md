@@ -4,63 +4,65 @@ This module  tend to replace the old XMPP API which was removed with the firemwa
 
 It uses the local websocket API of the hub.
 
-## Get the remote id of the hub
-```
-Host: <hub_host>:8088
-Origin: http://localhost.nebula.myharmony.com
-Content-Type: application/json
-Accept-Charset: utf-8
+# Usage
 
-{
-    "id ": 1,
-    "cmd": "connect.discoveryinfo?get",
-    "params": {}
-}
+## Installation
+
+```bash
+$ npm install harmony-hub-api
 ```
 
-## Get the configuration of the hub
-```json
-{
-    "hubId"  : "xXxXxXx",
-    "timeout": 30,
-    "hbus"   : {
-        "cmd": "vnd.logitech.harmony/vnd.logitech.harmony.engine?config",
-        "id" : "xXxXxXx",
-        "params": {
-            "verb": "get",
-            "format": "json"
-        }
-    }
-}
+## Connexion 
+
+```javascript
+const hub = new HarmonyHub('X.X.X.X', '12345678');
+hub.connect()
+    .then((config) => {
+        console.log('Connected to the hub');
+
+        console.log('\nActivities\n==========');
+        config.activity.forEach(activity => {
+            console.log(`${activity.label} (${activity.id})`);
+        });
+
+        console.log('\nDevices\n========');
+        config.device.forEach(device => {
+            console.log(`${device.label} (${device.id})`);
+        });
+    });
 ```
 
-## Send a remote press
-```json
-{
-    "hubId"  : "xXxXxXx",
-    "timeout": 30,
-    "hbus"   : {
-        "cmd": "vnd.logitech.harmony/vnd.logitech.harmony.engine?holdAction",
-        "id" : "xXxXxXx",
-        "params": {
-            "command": "Mute",
-            "type": "IRCommand", 
-            "deviceId": "xXxXxX" 
-        }
-    }
-}
+> Note : Without activity, the connection is automatically closed after 60 seconds. You can periodically send a `ping` or catch the `close` event to start a nex connection.
+
+## Send commands
+```javascript
+// Simple press
+hub.sendCommand('VolumeUp', '53161273');
+
+// Hold a press for 1 second
+hub.holdCommand('VolumeUp', '53161273', 1000);
 ```
 
+## Listen for events
 
-## Some available commands
+The HarmonyHub object is a EventEmitter for some events : 
 
-- vnd.logitech.connect/vnd.logitech.pingvnd.logitech.ping
+```javascript
+hub.on('error|connect|close|message|', callback)
+````
 
-- vnd.logitech.harmony/vnd.logitech.harmony.engine?getCurrentActivity
+- `error` : On error on the websocket
+    - 1 argument: the error
+- `connect` : On connection to the websocket of the hub
+    - 1 argument: the config of the hub
+- `close` : On the websocket connection close
+    - 2 arguments: code and description
+- `message` : On incoming message from the hub
+    - 1 argument: The message data
 
-- vnd.logitech.harmony/vnd.logitech.harmony.engine?holdAction
-    - params: { "command": "Mute", "type": "IRCommand", "deviceId": "53161273" }
-- vnd.logitech.harmony/vnd.logitech.harmony.engine?config
 
-- vnd.logitech.harmony/vnd.logitech.harmony.engine?startactivity
-    - params: { "activityId": "xxxxx"}
+## Log level
+By default, the logger is set on 'warn'. You can be overrided with the `LOG_LEVEL` environnement variable. eg:
+```bash
+$ LOG_LEVEL=debug node test.js
+```
