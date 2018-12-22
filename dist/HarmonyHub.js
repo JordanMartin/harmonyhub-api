@@ -89,9 +89,14 @@ var HarmonyHub = /** @class */ (function (_super) {
                 wsSocket.on('message', function (message) { return _this.onWsMessage(message); });
                 if (_this.autoloadConfig) {
                     // Load the configuration a first time
-                    _this.loadConfig().then(resolve).catch(reject);
+                    _this.loadConfig()
+                        .then(function (config) {
+                        _this.emit('connect', config);
+                        resolve();
+                    }).catch(reject);
                 }
                 else {
+                    _this.emit('connect');
                     resolve();
                 }
             });

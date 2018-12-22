@@ -46,8 +46,13 @@ class HarmonyHub extends EventEmitter {
 
                 if (this.autoloadConfig) {
                     // Load the configuration a first time
-                    this.loadConfig().then(resolve).catch(reject);
+                    this.loadConfig()
+                        .then((config) => {
+                            this.emit('connect', config);
+                            resolve();
+                        }).catch(reject);
                 } else {
+                    this.emit('connect');
                     resolve();
                 }
 
