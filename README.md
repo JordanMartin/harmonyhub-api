@@ -4,6 +4,9 @@ This module  tend to replace the old XMPP API which was removed with the firemwa
 
 It uses the local websocket API of the hub.
 
+> **UPDATE 23/12/2018**
+> Logitech reversed his decision about the XMPP API. It makes available back the API but only for developers. [see more here](https://community.logitech.com/s/question/0D55A00008D4bZ4SAJ/harmony-hub-firmware-update-fixes-vulnerabilities)
+
 # Usage
 
 ## Installation
