@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>&quot;logger&quot; | harmonyhub-api</title>
+	<title>&quot;get-remote-id&quot; | harmonyhub-api</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,10 +56,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="_logger_.html">&quot;logger&quot;</a>
+					<a href="_get_remote_id_.html">&quot;get-remote-id&quot;</a>
 				</li>
 			</ul>
-			<h1>External module &quot;logger&quot;</h1>
+			<h1>External module &quot;get-remote-id&quot;</h1>
 		</div>
 	</div>
 </header>
@@ -73,7 +73,13 @@
 						<section class="tsd-index-section tsd-is-not-exported">
 							<h3>Variables</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-variable tsd-parent-kind-external-module tsd-is-not-exported"><a href="_logger_.html#logger" class="tsd-kind-icon">logger</a></li>
+								<li class="tsd-kind-variable tsd-parent-kind-external-module tsd-is-not-exported"><a href="_get_remote_id_.html#host" class="tsd-kind-icon">host</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section tsd-is-not-exported">
+							<h3>Functions</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported"><a href="_get_remote_id_.html#requesthub" class="tsd-kind-icon">request<wbr>Hub</a></li>
 							</ul>
 						</section>
 					</div>
@@ -82,14 +88,49 @@
 			<section class="tsd-panel-group tsd-member-group tsd-is-not-exported">
 				<h2>Variables</h2>
 				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-external-module tsd-is-not-exported">
-					<a name="logger" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagConst">Const</span> logger</h3>
-					<div class="tsd-signature tsd-kind-icon">logger<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Logger</span><span class="tsd-signature-symbol"> =&nbsp;createLogger({level: process.env.LOG_LEVEL || &#x27;warn&#x27;,format: format.combine(format.colorize(),format.splat(),format.simple(),),transports: [new transports.Console()]})</span></div>
+					<a name="host" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagLet">Let</span> host</h3>
+					<div class="tsd-signature tsd-kind-icon">host<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;process.argv[2]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/jordanmartin/harmonyhub-api/blob/16f8220/src/logger.ts#L3">logger.ts:3</a></li>
+							<li>Defined in get-remote-id.ts:5</li>
 						</ul>
 					</aside>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-not-exported">
+				<h2>Functions</h2>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported">
+					<a name="requesthub" class="tsd-anchor"></a>
+					<h3>request<wbr>Hub</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">request<wbr>Hub<span class="tsd-signature-symbol">(</span>host<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in get-remote-id.ts:35</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Get informations of the hub</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>host: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The host or ip of the hub</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>A json object containing informations of the hub</p>
+						</li>
+					</ul>
 				</section>
 			</section>
 		</div>
@@ -102,13 +143,13 @@
 					<li class=" tsd-kind-external-module">
 						<a href="_harmonyhub_.html">"<wbr>Harmony<wbr>Hub"</a>
 					</li>
-					<li class=" tsd-kind-external-module">
+					<li class="current tsd-kind-external-module">
 						<a href="_get_remote_id_.html">"get-<wbr>remote-<wbr>id"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
 						<a href="_index_.html">"index"</a>
 					</li>
-					<li class="current tsd-kind-external-module">
+					<li class=" tsd-kind-external-module">
 						<a href="_logger_.html">"logger"</a>
 					</li>
 				</ul>
@@ -116,7 +157,10 @@
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-variable tsd-parent-kind-external-module tsd-is-not-exported">
-						<a href="_logger_.html#logger" class="tsd-kind-icon">logger</a>
+						<a href="_get_remote_id_.html#host" class="tsd-kind-icon">host</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported">
+						<a href="_get_remote_id_.html#requesthub" class="tsd-kind-icon">request<wbr>Hub</a>
 					</li>
 				</ul>
 			</nav>
