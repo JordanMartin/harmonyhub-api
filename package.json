@@ -1,6 +1,6 @@
 {
   "name": "harmonyhub-api",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Harmony Hub API that use the local websocket API of the hub",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -8,6 +8,9 @@
     "build": "tsc",
     "watch": "tsc -w",
     "doc": "typedoc --out docs"
+  },
+  "bin": {
+    "harmonyhub-remote-id": "dist/get-remote-id.js"
   },
   "keywords": [
     "logitech",
