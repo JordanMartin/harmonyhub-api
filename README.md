@@ -35,6 +35,7 @@ Accept-Charset: utf-8
 ```
 ## Connection and configuration
 ```javascript
+const HarmonyHub = require('harmonyhub-api').HarmonyHub;
 const HUB_HOST = 'X.X.X.X';
 const HUB_REMOTE_ID = 'XXXXXXX';
 const hub = new HarmonyHub(HUB_HOST, HUB_REMOTE_ID);
