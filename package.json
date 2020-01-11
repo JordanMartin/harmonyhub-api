@@ -33,7 +33,7 @@
   },
   "devDependencies": {
     "@types/websocket": "0.0.40",
-    "typedoc": "^0.13.0",
+    "typedoc": "^0.15.8",
     "typescript": "^3.2.1"
   }
 }
