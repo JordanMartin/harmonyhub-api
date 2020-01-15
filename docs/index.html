@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>harmonyhub-api</title>
+	<title>harmonyhub-api - v1.0.4</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="assets/css/main.css">
@@ -22,7 +22,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="index.html" class="title">harmonyhub-api</a>
+					<a href="index.html" class="title">harmonyhub-api - v1.0.4</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -56,7 +56,7 @@
 					<a href="globals.html">Globals</a>
 				</li>
 			</ul>
-			<h1> harmonyhub-api</h1>
+			<h1> harmonyhub-api - v1.0.4</h1>
 		</div>
 	</div>
 </header>
@@ -64,17 +64,25 @@
 	<div class="row">
 		<div class="col-8 col-content">
 			<div class="tsd-panel tsd-typography">
-				<h1 id="harmony-hub-api-with-local-websocket-">Harmony Hub API (with local websocket)</h1>
+				<a href="#harmony-hub-api-with-local-websocket" id="harmony-hub-api-with-local-websocket" style="color: inherit; text-decoration: none;">
+					<h1>Harmony Hub API (with local websocket)</h1>
+				</a>
 				<p>This module  tend to replace the old XMPP API which was removed with the firemware 4.15.206 (<a href="https://community.logitech.com/s/question/0D55A00008D4bZ4SAJ/harmony-hub-firmware-update-fixes-vulnerabilities">see more here</a>).</p>
 				<p>It uses the local websocket API of the hub.</p>
 				<blockquote>
 					<p><strong>UPDATE 23/12/2018</strong>
 					Logitech reversed his decision about the XMPP API. It makes available back the API but only for developers. <a href="https://community.logitech.com/s/question/0D55A00008D4bZ4SAJ/harmony-hub-firmware-update-fixes-vulnerabilities">see more here</a>. The local websocket API remains available.</p>
 				</blockquote>
-				<h1 id="usage">Usage</h1>
-				<h2 id="installation">Installation</h2>
+				<a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
+					<h1>Usage</h1>
+				</a>
+				<a href="#installation" id="installation" style="color: inherit; text-decoration: none;">
+					<h2>Installation</h2>
+				</a>
 				<pre><code class="language-bash">$ npm install harmonyhub-api</code></pre>
-				<h2 id="get-the-remote-id-of-the-hub">Get the remote id of the hub</h2>
+				<a href="#get-the-remote-id-of-the-hub" id="get-the-remote-id-of-the-hub" style="color: inherit; text-decoration: none;">
+					<h2>Get the remote id of the hub</h2>
+				</a>
 				<p>Use the following helper:</p>
 				<pre><code class="language-bash">$ node_modules/.bin/harmonyhub-remote-id &lt;hub_ip_or_host&gt;</code></pre>
 				<p>Or juste make the following http post</p>
@@ -88,8 +96,11 @@
     <span class="hljs-attr">"cmd"</span>: <span class="hljs-string">"connect.discoveryinfo?get"</span>,
     <span class="hljs-attr">"params"</span>: {}
 }</span></code></pre>
-				<h2 id="connection-and-configuration">Connection and configuration</h2>
-				<pre><code class="language-javascript"><span class="hljs-keyword">const</span> HUB_HOST = <span class="hljs-string">'X.X.X.X'</span>;
+				<a href="#connection-and-configuration" id="connection-and-configuration" style="color: inherit; text-decoration: none;">
+					<h2>Connection and configuration</h2>
+				</a>
+				<pre><code class="language-javascript"><span class="hljs-keyword">const</span> HarmonyHub = <span class="hljs-built_in">require</span>(<span class="hljs-string">'harmonyhub-api'</span>).HarmonyHub;
+<span class="hljs-keyword">const</span> HUB_HOST = <span class="hljs-string">'X.X.X.X'</span>;
 <span class="hljs-keyword">const</span> HUB_REMOTE_ID = <span class="hljs-string">'XXXXXXX'</span>;
 <span class="hljs-keyword">const</span> hub = <span class="hljs-keyword">new</span> HarmonyHub(HUB_HOST, HUB_REMOTE_ID);
 
@@ -110,22 +121,29 @@ hub.connect()
 				<blockquote>
 					<p>:warning: Without activities, the connection is automatically closed after 60 seconds. You can periodically send a <code>ping</code> or catch the <code>close</code> event to open a new connection.</p>
 				</blockquote>
-				<h2 id="start-an-activity">Start an activity</h2>
+				<a href="#start-an-activity" id="start-an-activity" style="color: inherit; text-decoration: none;">
+					<h2>Start an activity</h2>
+				</a>
 				<p>The list of activityId can be found in the configuration object or with <code>hub.getActivities()</code></p>
 				<pre><code class="language-javascript">hub.startActivity(<span class="hljs-string">'xxxxxx'</span>);</code></pre>
-				<h2 id="send-command-to-a-device">Send command to a device</h2>
+				<a href="#send-command-to-a-device" id="send-command-to-a-device" style="color: inherit; text-decoration: none;">
+					<h2>Send command to a device</h2>
+				</a>
 				<p>The list of commands and deviceId can be found in the configuration object of each devices. Browse the content of <code>hub.getDevices()</code>.</p>
 				<pre><code class="language-javascript"><span class="hljs-comment">// Simple press</span>
 hub.sendCommand(<span class="hljs-string">'VolumeUp'</span>, <span class="hljs-string">'53161273'</span>);
 
 <span class="hljs-comment">// Hold a press for 1 second</span>
 hub.holdCommand(<span class="hljs-string">'VolumeUp'</span>, <span class="hljs-string">'53161273'</span>, <span class="hljs-number">1000</span>);</code></pre>
-				<h2 id="close-the-connection">Close the connection</h2>
+				<a href="#close-the-connection" id="close-the-connection" style="color: inherit; text-decoration: none;">
+					<h2>Close the connection</h2>
+				</a>
 				<pre><code class="language-javascript">hub.disconnect();</code></pre>
-				<h2 id="listen-for-events">Listen for events</h2>
+				<a href="#listen-for-events" id="listen-for-events" style="color: inherit; text-decoration: none;">
+					<h2>Listen for events</h2>
+				</a>
 				<p>The HarmonyHub object is a EventEmitter for some events : </p>
-				<pre><code class="language-javascript">hub.on(<span class="hljs-string">'error|connect|close|message'</span>, callback)
-<span class="hljs-string">`</span></code></pre>
+				<pre><code class="language-javascript">hub.on(<span class="hljs-string">'error|connect|close|message'</span>, callback)</code></pre>
 				<ul>
 					<li><code>error</code> : On error on the websocket<ul>
 							<li>1 argument: the error</li>
@@ -144,10 +162,14 @@ hub.holdCommand(<span class="hljs-string">'VolumeUp'</span>, <span class="hljs-s
 						</ul>
 					</li>
 				</ul>
-				<h2 id="log-level">Log level</h2>
+				<a href="#log-level" id="log-level" style="color: inherit; text-decoration: none;">
+					<h2>Log level</h2>
+				</a>
 				<p>By default, the logger is set on &#39;warn&#39;. You can override with the <code>LOG_LEVEL</code> environnement variable. eg:</p>
 				<pre><code class="language-bash">$ LOG_LEVEL=debug node test.js</code></pre>
-				<h2 id="api-documentation">API documentation</h2>
+				<a href="#api-documentation" id="api-documentation" style="color: inherit; text-decoration: none;">
+					<h2>API documentation</h2>
+				</a>
 				<p>The full API documentation is available in the <code>docs/</code> folder.</p>
 			</div>
 		</div>
@@ -158,16 +180,16 @@ hub.holdCommand(<span class="hljs-string">'VolumeUp'</span>, <span class="hljs-s
 						<a href="globals.html"><em>Globals</em></a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/_harmonyhub_.html">"<wbr>Harmony<wbr>Hub"</a>
+						<a href="modules/_harmonyhub_.html">&quot;<wbr>Harmony<wbr>Hub&quot;</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/_get_remote_id_.html">"get-<wbr>remote-<wbr>id"</a>
+						<a href="modules/_get_remote_id_.html">&quot;get-<wbr>remote-<wbr>id&quot;</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/_index_.html">"index"</a>
+						<a href="modules/_index_.html">&quot;index&quot;</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/_logger_.html">"logger"</a>
+						<a href="modules/_logger_.html">&quot;logger&quot;</a>
 					</li>
 				</ul>
 			</nav>
@@ -190,6 +212,7 @@ hub.holdCommand(<span class="hljs-string">'VolumeUp'</span>, <span class="hljs-s
 				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
 				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
 				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+				<li class="tsd-kind-type-alias tsd-has-type-parameter"><span class="tsd-kind-icon">Type alias with type parameter</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
@@ -238,7 +261,7 @@ hub.holdCommand(<span class="hljs-string">'VolumeUp'</span>, <span class="hljs-s
 	</div>
 </footer>
 <div class="container tsd-generator">
-	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
 </div>
 <div class="overlay"></div>
 <script src="assets/js/main.js"></script>

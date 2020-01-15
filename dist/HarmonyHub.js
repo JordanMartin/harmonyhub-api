@@ -99,7 +99,7 @@ var HarmonyHub = /** @class */ (function (_super) {
                     _this.loadConfig()
                         .then(function (config) {
                         _this.emit('connect', config);
-                        resolve();
+                        resolve(config);
                     }).catch(reject);
                 }
                 else {

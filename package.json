@@ -1,6 +1,6 @@
 {
   "name": "harmonyhub-api",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "Harmony Hub API that use the local websocket API of the hub",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -27,9 +27,9 @@
   },
   "license": "GPL-3.0",
   "dependencies": {
-    "@types/node": "^10.12.11",
-    "winston": "^3.1.0",
-    "websocket": "^1.0.28"
+    "@types/node": "^10.17.13",
+    "websocket": "^1.0.28",
+    "winston": "^3.1.0"
   },
   "devDependencies": {
     "@types/websocket": "0.0.40",
