@@ -56,7 +56,7 @@ class HarmonyHub extends EventEmitter {
                     this.loadConfig()
                         .then((config) => {
                             this.emit('connect', config);
-                            resolve();
+                            resolve(config);
                         }).catch(reject);
                 } else {
                     this.emit('connect');
