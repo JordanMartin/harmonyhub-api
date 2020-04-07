@@ -10,7 +10,7 @@
     "doc": "typedoc --out docs"
   },
   "bin": {
-    "harmonyhub-remote-id": "dist/get-remote-id.js"
+    "harmonyhub-remote-id": "./dist/get-remote-id.js"
   },
   "keywords": [
     "logitech",
@@ -28,12 +28,12 @@
   "license": "GPL-3.0",
   "dependencies": {
     "@types/node": "^10.17.13",
-    "websocket": "^1.0.28",
-    "winston": "^3.1.0"
+    "websocket": "^1.0.31",
+    "winston": "^3.2.1"
   },
   "devDependencies": {
     "@types/websocket": "0.0.40",
     "typedoc": "^0.15.8",
-    "typescript": "^3.2.1"
+    "typescript": "^3.8.3"
   }
 }
