@@ -1,3 +1,4 @@
+/// <reference types="node" />
 import { EventEmitter } from 'events';
 /**
  * Harmony Hub API uses the local websocket api of the hub

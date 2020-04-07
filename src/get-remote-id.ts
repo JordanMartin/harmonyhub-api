@@ -15,9 +15,8 @@ requestHub(host)
         console.log();
         console.log('Found Logitech Harmony Hub');
         console.log('---------------------------');
-        console.log(' - Name:', data.friendlyName);
-        console.log(' - Remote id:', data.remoteId);
-        console.log(' - Firmware:', data.current_fw_version);
+        console.log(' - Username    :', data.username);
+        console.log(' - Remote id   :', data.activeRemoteId);
         console.log();
     })
     .catch((error) => {
@@ -37,7 +36,7 @@ function requestHub(host: string): Promise<any> {
 
         const body: any = JSON.stringify({
             "id ": 1,
-            "cmd": "connect.discoveryinfo?get",
+            "cmd": "setup.account?getProvisionInfo",
             "params": {}
         });
 
@@ -49,7 +48,7 @@ function requestHub(host: string): Promise<any> {
             headers: {
                 'Content-Type': 'application/json',
                 'Content-Length': Buffer.byteLength(body),
-                'Origin': 'http://localhost.nebula.myharmony.com',
+                'Origin': 'http://sl.dhg.myharmony.com',
                 'Accept-Charset': 'utf-8'
             }
         };
@@ -59,8 +58,17 @@ function requestHub(host: string): Promise<any> {
             res.on('data', chunk => chunks.push(chunk));
             res.on('end', () => {
                 const response: string = Buffer.concat(chunks).toString();
-                const data: any = JSON.parse(response).data;
-                resolve(data);
+
+                if (res.statusCode === 200) {
+                    const data: any = JSON.parse(response).data;
+                    resolve(data);
+                } else {
+                    reject({
+                        statusCode: res.statusCode,
+                        statusMessage: res.statusMessage,
+                        body: response
+                    });
+                }
             });
         });
 
