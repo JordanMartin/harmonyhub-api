@@ -23,16 +23,22 @@ $ node_modules/.bin/harmonyhub-remote-id <hub_ip_or_host>
 Or juste make the following http post
 ```http
 Host: <hub_host_or_ip>:8088
-Origin: http://localhost.nebula.myharmony.com
+Origin: http://sl.dhg.myharmony.com
 Content-Type: application/json
 Accept-Charset: utf-8
 
 {
     "id ": 1,
-    "cmd": "connect.discoveryinfo?get",
+    "cmd": "setup.account?getProvisionInfo",
     "params": {}
 }
 ```
+
+**Example with curl**
+```bash
+$ curl -X POST <hub_host_or_ip>:8088 -H 'Accept: utf-8' -H 'Content-Type: application/json' -H 'Origin: http://sl.dhg.myharmony.com' -d '{"id":1,"cmd":"setup.account?getProvisionInfo","params":{}}'
+```
+
 ## Connection and configuration
 ```javascript
 const HarmonyHub = require('harmonyhub-api').HarmonyHub;

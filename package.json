@@ -1,6 +1,6 @@
 {
   "name": "harmonyhub-api",
-  "version": "1.0.4",
+  "version": "1.0.8",
   "description": "Harmony Hub API that use the local websocket API of the hub",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
