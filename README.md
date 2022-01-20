@@ -62,7 +62,16 @@ hub.connect()
     });
 ```
 
+## keep the connection alive
 > :warning: Without activities, the connection is automatically closed after 60 seconds. You can periodically send a `ping` or catch the `close` event to open a new connection.
+
+```javascript
+// Regularly ping 
+setInterval(() => hub.ping(), 50000);
+
+// Or catch the close event
+hub.on('close', () => hub.connect());
+```
 
 ## Start an activity
 The list of activityId can be found in the configuration object or with `hub.getActivities()`
