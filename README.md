@@ -62,7 +62,7 @@ hub.connect()
     });
 ```
 
-## keep the connection alive
+## Keep the connection alive
 > :warning: Without activities, the connection is automatically closed after 60 seconds. You can periodically send a `ping` or catch the `close` event to open a new connection.
 
 ```javascript
